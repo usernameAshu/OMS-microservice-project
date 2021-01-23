@@ -7,3 +7,6 @@
 [submodule "service-registry"]
 	path = service-registry
 	url = git@github.com:usernameAshu/service-registry.git
+[submodule "cloud-api-gateway"]
+	path = cloud-api-gateway
+	url = git@github.com:usernameAshu/cloud-api-gateway.git
