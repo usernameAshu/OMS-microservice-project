@@ -10,3 +10,6 @@
 [submodule "cloud-api-gateway"]
 	path = cloud-api-gateway
 	url = git@github.com:usernameAshu/cloud-api-gateway.git
+[submodule "cloud-config-server-app"]
+	path = cloud-config-server-app
+	url = git@github.com:usernameAshu/cloud-config-server-app.git
