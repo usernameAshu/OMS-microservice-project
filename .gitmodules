@@ -13,3 +13,6 @@
 [submodule "cloud-config-server-app"]
 	path = cloud-config-server-app
 	url = git@github.com:usernameAshu/cloud-config-server-app.git
+[submodule "cloud-config-server"]
+	path = cloud-config-server
+	url = git@github.com:usernameAshu/cloud-config-server.git
