@@ -1,38 +1,62 @@
 # OMS-microservice-project
-Execute the below commands in git bash:<br>
+<strong>Execute the below commands in git bash:</strong><br>
 <br>git clone https://github.com/usernameAshu/OMS-microservice-project.git 
 <br>cd OMS-microservice-project/ 
 <br>git submodule init
 <br>git submodule update
 <br>
-To receive updated commit changes from submodules , execute below command:<br>
-<br>git submodule update --remote
+<strong>To receive updated commit changes from submodules , execute below command:</strong><br>
+git submodule update --remote
 <br>
 <br>
-This is a project based on microservice architecture developed in Java using SpringBoot framework<br>
+<strong>This is a project based on microservice architecture developed in Java using SpringBoot framework</strong><br>
 Create a log file named "microservice-elk.log"<br>
 Copy that log file location to application.yaml of order-service and payment-service <br>
 Paste the log file location to input.file.path => "" <br>
 Check the deafult index from http://localhost:9200/_cat/indices <br>
 Create a index from Kibana Stack Management with search index : logstash-* <br>
 <br>
-System reuirements: <br>
+<strong>System requirements:</strong> <br>
 Java 8<br>
 Maven 3.3.x<br>
 IntelliJ IDEA 2020.2.x<br>
-Disclaimer Notes:<br><br>
+<strong>Build the project using the below maven command:</strong> <br>
+mvn clean install -Dmaven.test.skip=true<br>
+<strong>Start the microservices in the following order:</strong><br>
+<OL>
+  <LI>service-registry
+  <LI>cloud-config-server-app
+  <LI>cloud-api-gateway
+  <LI>payment-service
+  <LI>order-service
+    </OL>
+<strong>Microservice architecture features implemented:</strong>
+<OL>
+<LI>Create 2 microservice from scratch 
+<LI>Register microservice in Eureka Service Discovery
+<LI>Integrate Spring Cloud Gateway for routing user request
+<LI>Integrate Hystrix & Hystrix Dashboard to identify failure for downstream services
+<LI>Spring cloud config server using Git to Centralize configuration across application
+<LI>ELK Stack to centralize logging across all microservices
+</OL>
+Disclaimer Notes:<br>
 Software Used:<br>
-Elastic Search: https://www.elastic.co/downloads/elasticsearch<br>
-Logstash : https://www.elastic.co/downloads/logstash<br>
-Kibana : https://www.elastic.co/downloads/kibana<br>
-Tutorial Source: https://www.youtube.com/watch?v=tljuDMmfJz8&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&start_radio=1&t=4834 <br>
-By Java Techie <br>
-Stack-overflow link :<br>
-https://stackoverflow.com/questions/28375416/spring-cloud-config-server-cant-locate-propertysource-on-startup <br>
-https://stackoverflow.com/questions/44014594/spring-boot-could-not-locate-propertysource-label-not-found <br>
+<OL>
+<LI>Elastic Search: https://www.elastic.co/downloads/elasticsearch
+<LI>Logstash : https://www.elastic.co/downloads/logstash
+<LI>Kibana : https://www.elastic.co/downloads/kibana
+  </OL>
+Tutorial Source: https://www.youtube.com/watch?v=tljuDMmfJz8&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&start_radio=1&t=4834 By Java Techie <br>
+  <strong>Stack-overflow link :</strong><br>
+  <OL>
+<LI>https://stackoverflow.com/questions/28375416/spring-cloud-config-server-cant-locate-propertysource-on-startup 
+<LI>https://stackoverflow.com/questions/44014594/spring-boot-could-not-locate-propertysource-label-not-found 
+  </OL>
 Spring docs:<br>
-https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-monitoring<br>
-https://docs.spring.io/spring-boot/docs/1.5.x/reference/html/howto-logging.html<br>
+   <OL>
+<LI>https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-monitoring
+<LI>https://docs.spring.io/spring-boot/docs/1.5.x/reference/html/howto-logging.html
+   </OL>
 Baeldung Sources:<br>
 https://www.baeldung.com/spring-cloud-configuration<br>
 Github issues:<br>
