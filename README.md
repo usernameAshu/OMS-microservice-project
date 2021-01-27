@@ -46,7 +46,7 @@ Software Used:<br>
 <LI>Logstash : https://www.elastic.co/downloads/logstash
 <LI>Kibana : https://www.elastic.co/downloads/kibana
   </OL>
-Tutorial Source: https://www.youtube.com/watch?v=tljuDMmfJz8&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&start_radio=1&t=4834 By Java Techie <br>
+<strong>Tutorial Source: https://www.youtube.com/watch?v=tljuDMmfJz8&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&start_radio=1&t=4834 By Java Techie </strong><br>
   <strong>Stack-overflow link :</strong><br>
   <OL>
 <LI>https://stackoverflow.com/questions/28375416/spring-cloud-config-server-cant-locate-propertysource-on-startup 
