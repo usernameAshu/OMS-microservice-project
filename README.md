@@ -32,7 +32,7 @@ mvn clean install -Dmaven.test.skip=true<br>
     </OL>
 <strong>Microservice architecture features implemented:</strong>
 <OL>
-<LI>Create 2 microservice from scratch 
+<LI>Create order and payment microservice from scratch 
 <LI>Register microservice in Eureka Service Discovery
 <LI>Integrate Spring Cloud Gateway for routing user request
 <LI>Integrate Hystrix & Hystrix Dashboard to identify failure for downstream services
