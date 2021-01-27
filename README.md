@@ -10,11 +10,20 @@ git submodule update --remote
 <br>
 <br>
 <strong>This is a project based on microservice architecture developed in Java using SpringBoot framework</strong><br>
-Create a log file named "microservice-elk.log"<br>
+Create a log file named "microservice-elk.log" or you can use the log file in this repo<br>
 Copy that log file location to application.yaml of order-service and payment-service <br>
-Paste the log file location to input.file.path => "" <br>
+Inside file: kibana.yml , uncomment :elasticsearch.hosts<br>
+Execute elasticsearch.bat<br>
+Execute kibana.bat<br>
 Check the deafult index from http://localhost:9200/_cat/indices <br>
+Use the logstash.conf file, paste it the logstash-7.10.x/bin<br>
+Paste the log file location to input.file.path => ""  inside logstash.conf<br>
+Execute : logstash -f logstash.conf <br>
+<strong>Elastic search : localhost:9200</strong><br>
+<strong>Kibana console : localhost:5601</strong><br>
+<strong>Logstash console : localhost:9600</strong><br>
 Create a index from Kibana Stack Management with search index : logstash-* <br>
+In the Discover window, view the logs generated from Microservices<br>
 <br>
 <strong>System requirements:</strong> <br>
 Java 8<br>
