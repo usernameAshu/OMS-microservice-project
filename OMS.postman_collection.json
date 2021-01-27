@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "cb740ade-832b-4ef4-880d-b7e9a24246f4",
+		"name": "OMS microservice app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Order-service api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order\": {\r\n        \"order_name\": \"iPhoneX pro\",\r\n        \"order_quantity\": 1,\r\n        \"order_price\": 10000.50\r\n    },\r\n    \"payment\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/orders/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"orders",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment-service api",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paymentStatus\" : \"CONFIRMED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9091/payments/v1/11",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"payments",
+						"v1",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Gateway payment-service api",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order\": {\r\n        \"order_name\": \"iPhoneX pro\",\r\n        \"order_quantity\": 1,\r\n        \"order_price\": 10000.50\r\n    },\r\n    \"payment\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/payments/v1?orderId=17",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"payments",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "17"
+						}
+					]
+				},
+				"description": "localhost:8989/payments/v1/{orderId}"
+			},
+			"response": []
+		},
+		{
+			"name": "API gateway order-service api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order\": {\r\n        \"order_name\": \"Macbook pro\",\r\n        \"order_quantity\": 1,\r\n        \"order_price\": 100000.50\r\n    },\r\n    \"payment\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/orders/v1/",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"orders",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
