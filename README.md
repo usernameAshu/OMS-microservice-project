@@ -12,7 +12,7 @@ git submodule update --remote
 <strong>This is a project based on microservice architecture developed in Java using SpringBoot framework</strong><br>
 Create a log file named "microservice-elk.log" or you can use the log file in this repo<br>
 Copy that log file location to application.yaml of order-service and payment-service <br>
-Inside file: kibana.yml , uncomment :elasticsearch.hosts<br>
+Inside file: kibana.yml , <strong>uncomment :elasticsearch.hosts</strong><br>
 Execute <strong>elasticsearch.bat</strong><br>
 Execute <strong>kibana.bat</strong><br>
 Check the deafult index from http://localhost:9200/_cat/indices <br>
@@ -31,7 +31,7 @@ In the Discover window, view the logs generated from Microservices<br>
 Java 8<br>
 Maven 3.3.x<br>
 IntelliJ IDEA 2020.2.x<br>
-<strong>Build the project using the below maven command:</strong> <br>
+<strong>Build the microservices using the below maven command:</strong> <br>
 mvn clean install -Dmaven.test.skip=true<br>
 <strong>Start the microservices in the following order:</strong><br>
 <OL>
@@ -51,7 +51,7 @@ mvn clean install -Dmaven.test.skip=true<br>
 <LI>ELK Stack to centralize logging across all microservices
 </OL>
 To create custom index "mohanty_index" :<br>
-Create a index in Kibana -> Management -> Devtools (http://localhost:5601/app/dev_tools#/console)<br>
+Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev_tools#/console<br>
   PUT /mohanty_index<br>
 {<br>
   "settings": {<br>
