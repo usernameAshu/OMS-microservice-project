@@ -19,6 +19,8 @@ Check the deafult index from http://localhost:9200/_cat/indices <br>
 Use the logstash.conf file, paste it the logstash-7.10.x/bin<br>
 Paste the log file location to input.file.path => ""  inside logstash.conf<br>
 Execute : logstash -f logstash.conf <br>
+Check the logs of the default index: http://localhost:9200/logstash-2021.01.27-000001/_search <br>
+Replace "logstash-2021.01.27-000001" with the current default logstash<br>
 <strong>Elastic search : localhost:9200</strong><br>
 <strong>Kibana console : localhost:5601</strong><br>
 <strong>Logstash console : localhost:9600</strong><br>
@@ -48,7 +50,34 @@ mvn clean install -Dmaven.test.skip=true<br>
 <LI>Spring cloud config server using Git to Centralize configuration across application
 <LI>ELK Stack to centralize logging across all microservices
 </OL>
-Disclaimer Notes:<br>
+To create custom index "mohanty_index" :<br>
+Create a index in Kibana -> Management -> Devtools (http://localhost:5601/app/dev_tools#/console)<br>
+  PUT /mohanty_index<br>
+{<br>
+  "settings": {<br>
+    "index":{<br>
+      "number_of_shards":3,<br>
+      "number_of_replicas":2<br>
+    }<br>
+  }<br>
+}<br>
+<br>
+  Attach a document to the index:<br>
+  POST /mohanty_index/default/<br>
+{<br>
+  "name":"event processing",<br>
+  "instructor": {<br>
+    "firstName": "Ashutosh",<br>
+    "lastName": "Mohanty"<br>
+  }<br>
+}<br>
+Add the custom index to logstash.conf<br>
+elasticsearch { <br>
+hosts => ["localhost:9200"]<br>
+index => "mohanty_index-%{+yyyy.MM.dd}"<br>
+}<br>
+Execute : logstash -f logstash.config<br>
+<strong>Disclaimer Notes:</strong><br>
 Software Used:<br>
 <OL>
 <LI>Elastic Search: https://www.elastic.co/downloads/elasticsearch
@@ -79,24 +108,4 @@ https://dev.to/nagarajendra/basics-of-resilience4j-with-spring-boot-4dk8<br>
 https://www.elastic.co/guide/en/logstash/current/configuration.html<br>
 https://www.elastic.co/guide/en/logstash/current/config-examples.html<br>
 https://www.elastic.co/guide/en/kibana/7.10/kuery-query.html<br>
-This is a practice project to understand microservice architecture. All codes are from refernced from repository (https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix)<br>
-<p>
-  PUT /my_first_index
-{
-  "settings": {
-    "index":{
-      "number_of_shards":3,
-      "number_of_replicas":2
-    }
-  }
-}
-  </p><br>
-  <p>
-  POST /my_first_index/default/
-{
-  "name":"event processing",
-  "instructor": {
-    "firstName": "Ashutosh",
-    "lastName": "Mohanty"
-  }
-}</p><br>
+This is a practice project to understand microservice architecture. All codes are from referenced from repository (https://github.com/Java-Techie-jt/spring-cloud-gatway-hystrix)<br>
