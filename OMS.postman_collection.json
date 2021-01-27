@@ -51,43 +51,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9091/payments/v1/11",
+					"raw": "localhost:9091/payments/v1?orderId=2",
 					"host": [
 						"localhost"
 					],
 					"port": "9091",
-					"path": [
-						"payments",
-						"v1",
-						"11"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "API Gateway payment-service api",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"order\": {\r\n        \"order_name\": \"iPhoneX pro\",\r\n        \"order_quantity\": 1,\r\n        \"order_price\": 10000.50\r\n    },\r\n    \"payment\": {}\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8989/payments/v1?orderId=17",
-					"host": [
-						"localhost"
-					],
-					"port": "8989",
 					"path": [
 						"payments",
 						"v1"
@@ -95,22 +63,21 @@
 					"query": [
 						{
 							"key": "orderId",
-							"value": "17"
+							"value": "2"
 						}
 					]
-				},
-				"description": "localhost:8989/payments/v1/{orderId}"
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "API gateway order-service api",
+			"name": "API Gateway: Order POST api",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"order\": {\r\n        \"order_name\": \"Macbook pro\",\r\n        \"order_quantity\": 1,\r\n        \"order_price\": 100000.50\r\n    },\r\n    \"payment\": {}\r\n}",
+					"raw": "{\r\n    \"order\": {\r\n        \"order_name\": \"Mac Book pro\",\r\n        \"order_quantity\": 1,\r\n        \"order_price\": 100000.50\r\n    },\r\n    \"payment\": {}\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -127,6 +94,144 @@
 						"orders",
 						"v1",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API gateway: Order GET api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8989/orders/v1/",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"orders",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Gateway: Order GET by id API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8989/orders/v1/order?orderId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"orders",
+						"v1",
+						"order"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Gateway: Order PUT api",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order\": {\r\n        \"order_name\": \"Macintosh 7\",\r\n        \"order_quantity\": 1,\r\n        \"order_price\": 100000.5\r\n    },\r\n    \"payment\": {}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/orders/v1?orderId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"orders",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Gateway: Payment GET api by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/payments/v1?orderId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"payments",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "3"
+						}
+					]
+				},
+				"description": "localhost:8989/payments/v1/{orderId}"
+			},
+			"response": []
+		},
+		{
+			"name": "API Gateway : Payments GET api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8989/payments/v1/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"payments",
+						"v1",
+						"all"
 					]
 				}
 			},
