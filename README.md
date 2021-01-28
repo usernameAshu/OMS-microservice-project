@@ -76,9 +76,7 @@ Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev
     }<br>
   }<br>
 }<br>
-</OL>
-<br>
-<strong>Attach a document to the index:</strong><br>
+<LI><strong>Attach a document to the index:</strong><br>
   POST /mohanty_index/default/<br>
 {<br>
   "name":"event processing",<br>
@@ -87,13 +85,13 @@ Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev
     "lastName": "Mohanty"<br>
   }<br>
 }<br>
-<strong>Add the custom index to logstash.conf</strong><br>
+<LI><strong>Add the custom index to logstash.conf</strong><br>
 elasticsearch { <br>
 hosts => ["localhost:9200"]<br>
 index => "mohanty_index-%{+yyyy.MM.dd}"<br>
 }<br>
 <strong>Execute : logstash -f logstash.config</strong><br>
-<br>
+</OL>
 <strong>Instructions for setting up Distributed log tracing using Zipkin server</strong><br>
 <OL>
 <LI>Download the Java executable jar from https://zipkin.io/pages/quickstart.html 
