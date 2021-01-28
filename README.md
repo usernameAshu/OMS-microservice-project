@@ -64,7 +64,8 @@ mvn clean install -Dmaven.test.skip=true<br>
 </OL>
 <br>
 <strong>Setting up custom-index in Kibana server to view logs</strong><br>
-<strong>To create custom index "mohanty_index" :</strong><br>
+<OL>
+<LI><strong>To create custom index "mohanty_index" :</strong><br>
 Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev_tools#/console<br>
   PUT /mohanty_index<br>
 {<br>
@@ -75,6 +76,7 @@ Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev
     }<br>
   }<br>
 }<br>
+</OL>
 <br>
 <strong>Attach a document to the index:</strong><br>
   POST /mohanty_index/default/<br>
