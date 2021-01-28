@@ -1,11 +1,13 @@
 # OMS-microservice-project
 <strong>Execute the below commands in git bash:</strong><br>
-git clone https://github.com/usernameAshu/OMS-microservice-project.git <br>
-cd OMS-microservice-project/ <br>
-git submodule init<br>
-git submodule update<br>
+<OL>
+<LI>git clone https://github.com/usernameAshu/OMS-microservice-project.git <br>
+<LI>cd OMS-microservice-project/ <br>
+<LI>git submodule init<br>
+<LI>git submodule update<br>
 <strong>To receive updated commit changes from submodules , execute below command:</strong><br>
-git submodule update --remote
+<LI>git submodule update --remote
+</OL>
 <br>
 <br>
 <strong>This is a project based on microservice architecture developed in Java using SpringBoot framework</strong><br>
