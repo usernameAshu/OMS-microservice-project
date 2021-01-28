@@ -10,6 +10,37 @@ git submodule update --remote
 <br>
 <br>
 <strong>This is a project based on microservice architecture developed in Java using SpringBoot framework</strong><br>
+<strong>Microservice architecture features implemented:</strong>
+<OL>
+<LI>Create order and payment microservice from scratch 
+<LI>Register microservice in Eureka Service Discovery
+<LI>Integrate Spring Cloud Gateway for routing user request
+<LI>Integrate Hystrix & Hystrix Dashboard to identify failure for downstream services
+<LI>Spring cloud config server using Git to Centralize configuration across application
+<LI>ELK Stack to centralize logging across all microservices
+<LI>Distributed Log Tracing using Zipkin and Sleuth
+</OL>
+<strong>System requirements:</strong> <br>
+Java 8<br>
+Maven 3.3.x<br>
+IntelliJ IDEA 2020.2.x<br>
+<strong>Build the microservices using the below maven command:</strong> <br>
+mvn clean install -Dmaven.test.skip=true<br>
+<strong>Start the microservices in the following order:</strong><br>
+<OL>
+  <LI>service-registry
+  <LI>cloud-config-server-app
+  <LI>cloud-api-gateway
+  <LI>payment-service
+  <LI>order-service
+</OL>
+<strong>Postman Setup for Request/Response</strong><br>
+<OL>
+<LI>Download Postman
+<LI>Import the postman-collection file from the repo into Postman
+<LI>Hit the request and verify the response
+</OL>
+<strong>Instructions for Setting up the ELK stack for centralized logging</strong><br>
 Create a log file named "microservice-elk.log" or you can use the log file in this repo<br>
 Copy that log file location to application.yaml of order-service and payment-service <br>
 Inside file: kibana.yml , <strong>uncomment :elasticsearch.hosts</strong><br>
@@ -27,29 +58,7 @@ Replace "logstash-2021.01.27-000001" with the current default logstash<br>
 Create a index from Kibana Stack Management with search index : logstash-* <br>
 In the Discover window, view the logs generated from Microservices<br>
 <br>
-<strong>System requirements:</strong> <br>
-Java 8<br>
-Maven 3.3.x<br>
-IntelliJ IDEA 2020.2.x<br>
-<strong>Build the microservices using the below maven command:</strong> <br>
-mvn clean install -Dmaven.test.skip=true<br>
-<strong>Start the microservices in the following order:</strong><br>
-<OL>
-  <LI>service-registry
-  <LI>cloud-config-server-app
-  <LI>cloud-api-gateway
-  <LI>payment-service
-  <LI>order-service
-    </OL>
-<strong>Microservice architecture features implemented:</strong>
-<OL>
-<LI>Create order and payment microservice from scratch 
-<LI>Register microservice in Eureka Service Discovery
-<LI>Integrate Spring Cloud Gateway for routing user request
-<LI>Integrate Hystrix & Hystrix Dashboard to identify failure for downstream services
-<LI>Spring cloud config server using Git to Centralize configuration across application
-<LI>ELK Stack to centralize logging across all microservices
-</OL>
+<strong>Setting up custom-index in Kibana server to view logs</strong><br>
 To create custom index "mohanty_index" :<br>
 Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev_tools#/console<br>
   PUT /mohanty_index<br>
@@ -77,13 +86,21 @@ hosts => ["localhost:9200"]<br>
 index => "mohanty_index-%{+yyyy.MM.dd}"<br>
 }<br>
 Execute : logstash -f logstash.config<br>
+<br>
+<strong>Instructions for setting up Distributed log tracing using Zipkin server</strong><br>
+<OL>
+<LI>Download the Java executable jar from https://zipkin.io/pages/quickstart.html 
+<LI>Execute the jar file (java -jar zipkin-*.jar) OR run the docker command
+<LI>Verify Server is UP on http://localhost:9411/
+<LI>View the tracing of each request
+</OL>
 <strong>Disclaimer Notes:</strong><br>
 Software Used:<br>
 <OL>
 <LI>Elastic Search: https://www.elastic.co/downloads/elasticsearch
 <LI>Logstash : https://www.elastic.co/downloads/logstash
 <LI>Kibana : https://www.elastic.co/downloads/kibana
-  </OL>
+</OL>
 <strong>Tutorial Source: https://www.youtube.com/watch?v=tljuDMmfJz8&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&start_radio=1&t=4834 By Java Techie </strong><br>
   <strong>Stack-overflow link :</strong><br>
   <OL>
