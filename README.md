@@ -1,10 +1,9 @@
 # OMS-microservice-project
 <strong>Execute the below commands in git bash:</strong><br>
-<br>git clone https://github.com/usernameAshu/OMS-microservice-project.git 
-<br>cd OMS-microservice-project/ 
-<br>git submodule init
-<br>git submodule update
-<br>
+git clone https://github.com/usernameAshu/OMS-microservice-project.git <br>
+cd OMS-microservice-project/ <br>
+git submodule init<br>
+git submodule update<br>
 <strong>To receive updated commit changes from submodules , execute below command:</strong><br>
 git submodule update --remote
 <br>
@@ -21,9 +20,11 @@ git submodule update --remote
 <LI>Distributed Log Tracing using Zipkin and Sleuth
 </OL>
 <strong>System requirements:</strong> <br>
-Java 8<br>
-Maven 3.3.x<br>
-IntelliJ IDEA 2020.2.x<br>
+<OL>
+<LI>Java 8<br>
+<LI>Maven 3.3.x<br>
+<LI>IntelliJ IDEA 2020.2.x<br>
+</OL>
 <strong>Build the microservices using the below maven command:</strong> <br>
 mvn clean install -Dmaven.test.skip=true<br>
 <strong>Start the microservices in the following order:</strong><br>
@@ -41,25 +42,27 @@ mvn clean install -Dmaven.test.skip=true<br>
 <LI>Hit the request and verify the response
 </OL>
 <strong>Instructions for Setting up the ELK stack for centralized logging</strong><br>
-Create a log file named "microservice-elk.log" or you can use the log file in this repo<br>
-Copy that log file location to application.yaml of order-service and payment-service <br>
-Inside file: kibana.yml , <strong>uncomment :elasticsearch.hosts</strong><br>
-Execute <strong>elasticsearch.bat</strong><br>
-Execute <strong>kibana.bat</strong><br>
-Check the deafult index from http://localhost:9200/_cat/indices <br>
-Use the logstash.conf file, paste it the logstash-7.10.x/bin<br>
-Paste the log file location to input.file.path => ""  inside logstash.conf<br>
-Execute : <strong>logstash -f logstash.conf</strong> <br>
-Check the logs of the default index: http://localhost:9200/logstash-2021.01.27-000001/_search <br>
-Replace "logstash-2021.01.27-000001" with the current default logstash<br>
-<strong>Elastic search : localhost:9200</strong><br>
-<strong>Kibana console : localhost:5601</strong><br>
-<strong>Logstash console : localhost:9600</strong><br>
-Create a index from Kibana Stack Management with search index : logstash-* <br>
-In the Discover window, view the logs generated from Microservices<br>
+<OL>
+<LI>Create a log file named "microservice-elk.log" or you can use the log file in this repo<br>
+<LI>Copy that log file location to application.yaml of order-service and payment-service <br>
+<LI>Inside file: kibana.yml , <strong>uncomment :elasticsearch.hosts</strong><br>
+<LI>Execute <strong>elasticsearch.bat</strong><br>
+<LI>Execute <strong>kibana.bat</strong><br>
+<LI>Check the deafult index from http://localhost:9200/_cat/indices <br>
+<LI>Use the logstash.conf file, paste it the logstash-7.10.x/bin<br>
+<LI>Paste the log file location to input.file.path => ""  inside logstash.conf<br>
+<LI>Execute : <strong>logstash -f logstash.conf</strong> <br>
+<LI>Check the logs of the default index: http://localhost:9200/logstash-2021.01.27-000001/_search <br>
+<LI>Replace "logstash-2021.01.27-000001" with the current default logstash<br>
+<LI><strong>Elastic search : localhost:9200</strong><br>
+<LI><strong>Kibana console : localhost:5601</strong><br>
+<LI><strong>Logstash console : localhost:9600</strong><br>
+<LI>Create a index from Kibana Stack Management with search index : logstash-* <br>
+<LI>In the Discover window, view the logs generated from Microservices<br>
+</OL>
 <br>
 <strong>Setting up custom-index in Kibana server to view logs</strong><br>
-To create custom index "mohanty_index" :<br>
+<strong>To create custom index "mohanty_index" :</strong><br>
 Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev_tools#/console<br>
   PUT /mohanty_index<br>
 {<br>
@@ -71,7 +74,7 @@ Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev
   }<br>
 }<br>
 <br>
-  Attach a document to the index:<br>
+<strong>Attach a document to the index:</strong><br>
   POST /mohanty_index/default/<br>
 {<br>
   "name":"event processing",<br>
@@ -80,12 +83,12 @@ Create a index in Kibana -> Management -> Devtools http://localhost:5601/app/dev
     "lastName": "Mohanty"<br>
   }<br>
 }<br>
-Add the custom index to logstash.conf<br>
+<strong>Add the custom index to logstash.conf</strong><br>
 elasticsearch { <br>
 hosts => ["localhost:9200"]<br>
 index => "mohanty_index-%{+yyyy.MM.dd}"<br>
 }<br>
-Execute : logstash -f logstash.config<br>
+<strong>Execute : logstash -f logstash.config</strong><br>
 <br>
 <strong>Instructions for setting up Distributed log tracing using Zipkin server</strong><br>
 <OL>
@@ -100,6 +103,13 @@ Software Used:<br>
 <LI>Elastic Search: https://www.elastic.co/downloads/elasticsearch
 <LI>Logstash : https://www.elastic.co/downloads/logstash
 <LI>Kibana : https://www.elastic.co/downloads/kibana
+<LI>Zipkin : https://zipkin.io/pages/quickstart.html 
+<LI>IntelliJ IDE: https://www.jetbrains.com/idea/download/#section=windows
+<LI>Java SE 8: https://www.oracle.com/in/java/technologies/javase/javase-jdk8-downloads.html
+<LI>SpringBoot Starter: https://start.spring.io
+<LI>Maven: https://maven.apache.org/download.cgi
+<LI>Git: https://git-scm.com/downloads
+<LI>Postman: https://www.postman.com/downloads/
 </OL>
 <strong>Tutorial Source: https://www.youtube.com/watch?v=tljuDMmfJz8&list=RDCMUCORuRdpN2QTCKnsuEaeK-kQ&start_radio=1&t=4834 By Java Techie </strong><br>
   <strong>Stack-overflow link :</strong><br>
